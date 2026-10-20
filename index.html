@@ -121,7 +121,7 @@ const to=document.getElementById('to'),nm=document.getElementById('nm');
 function setName(n){to.textContent=n?'Gửi tặng '+n:'Gửi tặng những người phụ nữ tuyệt vời'}
 try{const h=decodeURIComponent(location.hash.slice(1));if(h){nm.value=h;setName(h)}}catch(e){}
 function qr(){
-  const base='location.href.split('#')[0]',n=nm.value.trim(),url=n?base+'#'+encodeURIComponent(n):base;
+  const base=location.href.split('#')[0],n=nm.value.trim(),url=n?base+'#'+encodeURIComponent(n):base;
   setName(n);document.getElementById('lk').textContent=url;
   const q=document.getElementById('qr');q.innerHTML='';
   try{new QRCode(q,{text:url,width:220,height:220,correctLevel:QRCode.CorrectLevel.L})}catch(e){q.textContent='Không tạo được QR'}
